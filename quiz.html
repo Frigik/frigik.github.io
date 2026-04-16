@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Проверь себя | Применение ИИ для написания проектов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav__list">
+        <li><a href="index.html" class="nav__link">Главная</a></li>
+        <li><a href="lessons.html" class="nav__link">Видео-уроки</a></li>
+        <li><a href="quiz.html" class="nav__link">Проверь себя</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 3rem 2rem;">
+    <h1 class="animate-on-scroll" style="text-align: center;">Проверь свои знания</h1>
+    <p class="animate-on-scroll" style="text-align: center; margin-bottom: 2rem; color: var(--color-gray-medium);">
+      Ответьте на 25 вопросов по теме «Интеграция ИИ в учебные проекты». 
+      Мгновенная проверка и обратная связь.
+    </p>
+
+      <form id="ai-quiz" class="quiz-container">
+  <!-- Прогресс-бар -->
+  <div class="quiz-progress">
+    <div class="quiz-progress__bar">
+      <div class="quiz-progress__fill" id="progress-fill"></div>
+    </div>
+    <div class="quiz-progress__text"><span id="progress-count">0</span> из <span id="progress-total">25</span> вопросов</div>
+  </div>
+  
+  <div class="quiz-questions"></div>
+  
+  <div class="quiz-actions">
+  <button type="submit" class="btn">Проверить ответы</button>
+  <button type="button" id="reset-quiz" class="btn btn-secondary">Сбросить тест</button>
+</div>
+  
+  <div id="quiz-result" class="result"></div>
+</form>
+
+
+    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-light);">
+      <p style="margin-bottom: 1rem;"><strong>Не набрали максимум?</strong></p>
+      <a href="lessons.html" class="btn" style="background: var(--color-gray-dark);">Вернуться к урокам</a>
+    </div>
+  </main>
+
+  <footer style="background: var(--color-gray-dark); color: white; padding: 2rem 0; margin-top: 4rem; text-align: center;">
+    <div class="container">
+      <p style="margin: 0; opacity: 0.9;">© 2026 Обучающий курс «Применение ИИ для написания проектов»</p>
+      <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.7;">Для учащихся 10–11 классов | Размещено на GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

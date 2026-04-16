@@ -1,0 +1,286 @@
+:root {
+  /* Цветовая палитра — Вариант 4 */
+  --color-red-primary: #E53935;
+  --color-red-dark: #C62828;
+  --color-gray-dark: #424242;
+  --color-gray-medium: #757575;
+  --color-gray-light: #F5F5F5;
+  --color-white: #FFFFFF;
+  
+  /* Шрифты */
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  
+  /* Анимации */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 24px rgba(198, 40, 40, 0.15);
+}
+
+/* Сброс и базовые стили */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-gray-dark);
+  background: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Типографика */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-red-primary);
+  line-height: 1.3;
+}
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { font-size: 2rem; margin: 2rem 0 1rem; }
+h3 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
+p { margin-bottom: 1rem; }
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Навигация */
+.nav {
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+.nav__list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav__link {
+  text-decoration: none;
+  color: var(--color-gray-dark);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+.nav__link:hover,
+.nav__link.active {
+  color: var(--color-red-primary);
+}
+.nav__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: var(--color-red-primary);
+  border-radius: 2px;
+}
+
+/* Карточки */
+.card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  border-left: 4px solid var(--color-red-primary);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  background: var(--color-red-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.btn:hover {
+  background: var(--color-red-dark);
+  transform: translateY(-2px);
+}
+.btn:active { transform: translateY(0); }
+.btn-secondary {
+  background: var(--color-gray-dark);
+}
+.btn-secondary:hover {
+  background: var(--color-gray-medium);
+}
+
+/* Видео-контейнер */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  margin: 1.5rem 0;
+  background: #000;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Тесты */
+.quiz-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* Прогресс-бар квиза */
+.quiz-progress {
+  position: sticky;
+  top: 70px;
+  background: var(--color-white);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-gray-light);
+  z-index: 999;
+  margin: 0 -2rem 2rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.quiz-progress__bar {
+  height: 6px;
+  background: var(--color-gray-light);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.quiz-progress__fill {
+  height: 100%;
+  background: var(--color-red-primary);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+.quiz-progress__text {
+  font-size: 0.9rem;
+  color: var(--color-gray-medium);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-align: right;
+}
+
+.question {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--color-gray-light);
+  border-radius: 8px;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.option:hover {
+  background: rgba(229, 57, 53, 0.08);
+}
+.option input { accent-color: var(--color-red-primary); }
+.feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none;
+}
+.feedback.correct {
+  background: rgba(46, 125, 50, 0.1);
+  color: #2e7d32;
+  display: block;
+}
+.feedback.incorrect {
+  background: rgba(198, 40, 40, 0.1);
+  color: var(--color-red-dark);
+  display: block;
+}
+.result {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-red-primary);
+  display: none;
+}
+.quiz-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/* Анимации при скролле */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Скрытые уроки — рабочая версия */
+.lesson-card.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.lesson-card.hidden.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.4s ease forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  .nav__list { flex-wrap: wrap; gap: 1rem; }
+  .container { padding: 0 1.5rem; }
+  .card { padding: 1.5rem; }
+  .quiz-progress { top: 60px; margin: 0 -1.5rem 2rem; padding: 1rem 1.5rem; }
+  .quiz-actions { flex-direction: column; align-items: center; }
+}
